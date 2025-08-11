@@ -10,9 +10,10 @@ var callFileList = rpc.declare({
 	expect: { entries: [] },
 	filter: function(list, params) {
 		var rv = [];
-		for (var i = 0; i < list.length; i++)
-			if (list[i].name.match(/^cdc-wdm/))
+		for (var i = 0; i < list.length; i++) {
+			if (list[i].name.match(/^cdc-wdm/) || list[i].name.match(/^mhi_QMI/))
 				rv.push(params.path + list[i].name);
+		}
 		return rv.sort();
 	}
 });
@@ -99,7 +100,7 @@ return network.registerProtocol('quectel', {
 
 		o = s.taboption('advanced', form.Value, 'delay', _('Modem init timeout'),
 			_('Maximum amount of seconds to wait for the modem to become ready'));
-		o.placeholder = '20';
+		o.placeholder = '30';
 		o.datatype    = 'min(1)';
 
 		o = s.taboption('advanced', form.Value, 'mtu', _('Override MTU'));

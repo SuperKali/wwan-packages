@@ -1,7 +1,7 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=quectel-cm
-PKG_VERSION:=1.6.5
+PKG_VERSION:=1.6.7
 PKG_RELEASE:=4
 
 include $(INCLUDE_DIR)/package.mk
@@ -17,7 +17,8 @@ define Package/quectel-cm
     +kmod-usb-net-qmi-wwan \
     +kmod-usb-net-qmi-wwan-fibocom \
     +kmod-usb-net-qmi-wwan-quectel \
-    +kmod-usb-serial-option
+    +kmod-usb-serial-option \
+    +sms_tool
 endef
 
 define Package/quectel-cm/install
